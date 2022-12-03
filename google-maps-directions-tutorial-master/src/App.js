@@ -42,6 +42,7 @@ function App() {
     return <SkeletonText />
   }
 
+  //경로계산
   async function calculateRoute() {
     if (originRef.current.value === '' || destiantionRef.current.value === '') {
       return
@@ -52,7 +53,7 @@ function App() {
       origin: originRef.current.value,
       destination: destiantionRef.current.value,
       // eslint-disable-next-line no-undef
-      travelMode: google.maps.TravelMode.DRIVING,
+      travelMode: google.maps.TravelMode.TRANSIT,
     })
     setDirectionsResponse(results)
     setDistance(results.routes[0].legs[0].distance.text)
@@ -107,14 +108,14 @@ function App() {
         <HStack spacing={2} justifyContent='space-between'>
           <Box flexGrow={1}>
             <Autocomplete>
-              <Input type='text' placeholder='Origin' ref={originRef} />
+              <Input type='text' placeholder='출발지' ref={originRef} />
             </Autocomplete>
           </Box>
           <Box flexGrow={1}>
             <Autocomplete>
               <Input
                 type='text'
-                placeholder='Destination'
+                placeholder='목적지'
                 ref={destiantionRef}
               />
             </Autocomplete>
@@ -132,8 +133,8 @@ function App() {
           </ButtonGroup>
         </HStack>
         <HStack spacing={4} mt={4} justifyContent='space-between'>
-          <Text>Distance: {distance} </Text>
-          <Text>Duration: {duration} </Text>
+          <Text>거리: {distance} </Text>
+          <Text>소요시간: {duration} </Text>
           <IconButton
             aria-label='center back'
             icon={<FaLocationArrow />}
