@@ -83,10 +83,10 @@ function App() {
           zoom={15}
           mapContainerStyle={{ width: '100%', height: '100%' }}
           options={{
-            zoomControl: false,
-            streetViewControl: false,
-            mapTypeControl: false,
-            fullscreenControl: false,
+            zoomControl: true,
+            streetViewControl: true,
+            mapTypeControl: true,
+            fullscreenControl: true,
           }}
           onLoad={map => setMap(map)}
         >
@@ -123,7 +123,7 @@ function App() {
 
           <ButtonGroup>
             <Button colorScheme='pink' type='submit' onClick={calculateRoute}>
-              Calculate Route
+              경로 탐색
             </Button>
             <IconButton
               aria-label='center back'
