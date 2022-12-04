@@ -1,3 +1,4 @@
+import PopoverForm from './PopoverForm'
 import {
   Box,
   Button,
@@ -125,9 +126,7 @@ function App() {
             <Button colorScheme='pink' type='submit' onClick={calculateRoute}>
               경로 탐색
             </Button>
-            <Button colorScheme='pink' type='submit'>
-              알림톡
-            </Button>
+            <PopoverForm/>
             <IconButton
               aria-label='center back'
               icon={<FaTimes />}
